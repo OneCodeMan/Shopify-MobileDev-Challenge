@@ -2,8 +2,7 @@ import Foundation
 
 struct Order {
     
-    var customerName: String
-    var customerEmail: String
+    var customer: Customer
     var totalPrice: Double
     var items: [Item]
     
