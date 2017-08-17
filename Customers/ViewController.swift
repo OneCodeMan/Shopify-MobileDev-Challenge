@@ -1,5 +1,3 @@
-// Header/Footer: #202E78
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -27,6 +25,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         return cell
           
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
 }
