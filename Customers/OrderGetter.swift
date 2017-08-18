@@ -21,8 +21,18 @@ class OrderGetter {
                         for order in orders {
                             
                             if let order = order as? [String : Any] {
+                                
                                 // THIS IS WHERE YOU FINALLY EXTRACT THE DATA
                                 print(order["email"]!)
+                                print(order["total_price"]!)
+                                print(order["customer"] ?? "no customer")
+                                print(order["line_items"] ?? "no line items")
+                                
+                                /*
+                                    for item in line_items
+                                        q = item["quantity"]
+                                        n = item["name"]
+                                 */
                             }
                             
                         }
