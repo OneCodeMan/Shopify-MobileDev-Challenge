@@ -2,8 +2,8 @@ import Foundation
 
 struct Customer {
     
-    var name: String
+    var firstName: String
+    var lastName: String
     var email: String
-    var isFavorite: Bool
     
 }

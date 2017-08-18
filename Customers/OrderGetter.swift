@@ -3,6 +3,7 @@ import Alamofire
 
 class OrderGetter {
     
+    var JSONFetcher = JSONHelper()
     var orders: [Order] = []
     var bronzeBagCount = 0.0
     
