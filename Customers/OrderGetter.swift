@@ -4,7 +4,7 @@ import Alamofire
 class OrderGetter {
     
     var orders: [Order] = []
-    var totalPriceNapoleon = 0.00
+    var bronzeBagCount = 0.0
     
     let ordersURL = URL(string: "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")!
     
@@ -28,12 +28,18 @@ class OrderGetter {
                                 // print(order["total_price"]!)
                                 // print(order["customer"] ?? "no customer")
                                 // print(order["line_items"] ?? "no line items")
+                                let lineItems = order["line_items"]! as? [[String: Any]]
                                 
-                                let email = String(describing: order["email"] ?? "no email")
-                                if email == "napoleon.batz@gmail.com" {
-                                    let totalPrice = (order["total_price"] as? NSString)!.doubleValue
-                                    self.totalPriceNapoleon += totalPrice
+                                for item in lineItems! {
+                                    let itemTitle = String(describing: item["title"]!)
+                                    
+                                    if itemTitle == "Awesome Bronze Bag" {
+                                        let itemQuantity = item["quantity"]! as? Double
+                                        self.bronzeBagCount += itemQuantity!
+                                        
+                                    }
                                 }
+                                
                                 
                                 /*
                                     for item in line_items
@@ -43,8 +49,8 @@ class OrderGetter {
                             }
                             
                         }
+                        print(self.bronzeBagCount)
                         
-                        print(self.totalPriceNapoleon)
                         
                     }
                     
