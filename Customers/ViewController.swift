@@ -1,6 +1,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let orderModel = OrderGetter()
 
     @IBOutlet weak var customerTableView: UITableView!
     
@@ -11,6 +13,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         customerTableView.delegate = self
         
         title = "Your Customers"
+        
+        orderModel.getOrders {
+            print("done")
+        }
         
     }
     
