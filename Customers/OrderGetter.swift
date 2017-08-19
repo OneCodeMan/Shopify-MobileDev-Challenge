@@ -3,8 +3,6 @@ import Alamofire
 
 class OrderGetter {
     
-    var JSONFetcher = JSONHelper()
-    var orders: [Order] = []
     var bronzeBagCount = 0.0
     
     let ordersURL = URL(string: "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")!
