@@ -4,6 +4,10 @@ import Alamofire
 class OrderGetter {
     
     var bronzeBagCount = 0.0
+    var targetItem = "Awesome Bronze Bag"
+    
+    var batzTotalSpent = 0.0
+    var targetEmail = "napoleon.batz@gmail.com"
     
     let ordersURL = URL(string: "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")!
     
@@ -22,17 +26,21 @@ class OrderGetter {
                             
                             if let order = order as? [String : Any] {
                                 
-                                // THIS IS WHERE YOU FINALLY EXTRACT THE DATA
-                                // print(order["email"]
-                                // print(order["total_price"]!)
-                                // print(order["customer"] ?? "no customer")
-                                // print(order["line_items"] ?? "no line items")
+                                // question 1
+                                let email = order["email"] as? String
+                                
+                                if email == self.targetEmail {
+                                    let totalPrice = (order["total_price"] as? NSString)!.doubleValue
+                                    self.batzTotalSpent += totalPrice
+                                }
+
+                                // question 2
                                 let lineItems = order["line_items"]! as? [[String: Any]]
                                 
                                 for item in lineItems! {
                                     let itemTitle = String(describing: item["title"]!)
                                     
-                                    if itemTitle == "Awesome Bronze Bag" {
+                                    if itemTitle == self.targetItem {
                                         let itemQuantity = item["quantity"]! as? Double
                                         self.bronzeBagCount += itemQuantity!
                                         
@@ -40,15 +48,9 @@ class OrderGetter {
                                 }
                                 
                                 
-                                /*
-                                    for item in line_items
-                                        q = item["quantity"]
-                                        n = item["name"]
-                                */
                             }
                             
                         }
-                        print(self.bronzeBagCount)
                         
                         
                     }

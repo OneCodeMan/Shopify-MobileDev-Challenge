@@ -13,7 +13,12 @@ class ViewController: UIViewController {
         title = "Your Customers"
         
         orderModel.getOrders {
-            print("done")
+            
+            let bronzeBagCount = Int(self.orderModel.bronzeBagCount)
+            self.bronzeBagsLabel.text? = String(describing: bronzeBagCount)
+            
+            let totalSpent = Double(self.orderModel.batzTotalSpent)
+            self.totalPriceLabel.text? = "$\(String(describing: totalSpent)) CAD"
         }
         
     }
