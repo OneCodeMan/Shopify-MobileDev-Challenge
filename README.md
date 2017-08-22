@@ -1,5 +1,9 @@
 # Shopify-MobileDev-Challenge
-In progress. My submission for Shopify's 2018 Winter internship mobile dev challenge.
+
+My submission for Shopify's 2018 Winter internship mobile dev challenge.
+
+Trello board:
+https://trello.com/b/kZ8XLfOG/ios-shopify-challenge
 
 ![UI](http://i.imgur.com/Zg66IML.png)
 
